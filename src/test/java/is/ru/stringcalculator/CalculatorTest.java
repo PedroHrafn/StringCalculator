@@ -8,4 +8,9 @@ public class CalculatorTest {
 	public void testEmptyString() {
 		assertEquals(0, Calculator.Add(""));
 	}
+	@Test
+	public void testOneNumber() {
+		assertEquals(1, Calculator.Add("1"));
+		assertEquals(2, Calculator.Add("2"));
+	}
 }
