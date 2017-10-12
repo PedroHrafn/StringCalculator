@@ -24,5 +24,11 @@ public class CalculatorTest {
 		assertEquals(10, Calculator.Add("1,2,3,4"));
 		assertEquals(20, Calculator.Add("5,10,3,2"));
 	}
+	@Test
+	public void testNewLinesSplit()
+	{
+		assertEquals(3, Calculator.Add("1\n2"));
+		assertEquals(20, Calculator.Add("5\n10,3\n2"));
+	}
 
 }
