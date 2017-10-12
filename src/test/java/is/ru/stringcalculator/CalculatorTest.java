@@ -18,9 +18,11 @@ public class CalculatorTest {
 		assertEquals(3, Calculator.Add("1,2"));
 		assertEquals(2, Calculator.Add("1,1"));
 	}
+	@Test
 	public void testManyNumbers() {
 		assertEquals(7, Calculator.Add("1,2,4"));
 		assertEquals(10, Calculator.Add("1,2,3,4"));
 		assertEquals(20, Calculator.Add("5,10,3,2"));
 	}
+
 }
