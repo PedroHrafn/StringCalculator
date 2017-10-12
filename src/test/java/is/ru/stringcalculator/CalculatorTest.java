@@ -25,10 +25,19 @@ public class CalculatorTest {
 		assertEquals(20, Calculator.Add("5,10,3,2"));
 	}
 	@Test
-	public void testNewLinesSplit()
-	{
+	public void testNewLinesSplit() {
 		assertEquals(3, Calculator.Add("1\n2"));
 		assertEquals(20, Calculator.Add("5\n10,3\n2"));
+	}
+	@Test
+	public void testNegativeNumberException() {
+	    try {
+	        Calculator.Add("-1,2");
+	    } 
+	    catch (Exception e) {
+	        final String expected = "Negatives not allowed: -1";
+	        assertEquals( expected, e.getMessage());
+	    }        
 	}
 
 }
