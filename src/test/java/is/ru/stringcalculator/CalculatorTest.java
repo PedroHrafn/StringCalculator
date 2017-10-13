@@ -58,7 +58,23 @@ public class CalculatorTest {
 		assertEquals(2, Calculator.Add("1001,2"));
 	}
 	@Test
-	public void newDelimiter() {
+	public void testnewDelimiterSemiKomma() {
 		assertEquals(3, Calculator.Add("//;\n1;2"));
-	}
+	} 
+	@Test
+	public void testnewDelimiterTwoSemiKommas() {
+		assertEquals(4, Calculator.Add("//;;\n1;;2;;1"));
+	} 
+	@Test
+	public void testnewDelimiterNegNumberException() {
+		try {
+			assertEquals(3, Calculator.Add("//;\n-1;2"));
+			junit.framework.Assert.fail("Negatives should throw exception");
+		}
+		catch(IllegalArgumentException e) {
+			final String expected = "Negatives not allowed: -1";
+	        assertEquals( expected, e.getMessage());
+		}
+		
+	} 
 } 
