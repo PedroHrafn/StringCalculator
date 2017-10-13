@@ -53,4 +53,12 @@ public class CalculatorTest {
 	        assertEquals( expected, e.getMessage());
 	    } 
 	}
+	@Test
+	public void testBiggerThan1K() {
+		assertEquals(2, Calculator.Add("1001,2"));
+	}
+	@Test
+	public void newDelimiter() {
+		assertEquals(3, Calculator.Add("//;\n1;2"));
+	}
 } 
