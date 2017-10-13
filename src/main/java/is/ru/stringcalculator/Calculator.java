@@ -12,10 +12,7 @@ public class Calculator {
 				throw new IllegalArgumentException("Negatives not allowed: " + negNumbers); 
 			}
 			if(text.contains(",") || text.contains("\n")) {
-				String delimiter = getDelimiter(text);
-				if(text.startsWith("//"))
-					text = text.substring(text.indexOf("\n") + 1, text.length());
-				String[] numbers = text.split(delimiter);
+				String[] numbers = numbers(text);
 				int sum = 0;
 				for(int i = 0; i < numbers.length; i++) {
 					int number = toInt(numbers[i]);
@@ -33,10 +30,7 @@ public class Calculator {
 	}
 
 	private static String getNegNumbers(String text) {
-		String delimiter = getDelimiter(text);
-		if(text.startsWith("//"))
-			text = text.substring(text.indexOf("\n") + 1, text.length());
-		String[] numbers = text.split(delimiter);
+		String[] numbers = numbers(text);
 		String negNumbers = "";
 		for(int i = 0; i < numbers.length; i++) {
 			if(numbers[i].startsWith("-")) {
@@ -58,5 +52,11 @@ public class Calculator {
 			delimiter = ",|\n";
 		}
 		return delimiter;
+	}
+	private static String[] numbers(String text) {
+		String delimiter = getDelimiter(text);
+		if(text.startsWith("//"))
+			text = text.substring(text.indexOf("\n") + 1, text.length());
+		return text.split(delimiter);
 	}
 }	
