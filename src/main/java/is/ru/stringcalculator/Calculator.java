@@ -42,7 +42,7 @@ public class Calculator {
 		}
 		return negNumbers;
 	}
-	private static String getDelimiter(String text) {
+	private static String[] numbers(String text) {
 		String delimiter;
 		if(text.startsWith("//")) {
 			delimiter = text.substring(2, text.indexOf("\n"));
@@ -51,12 +51,6 @@ public class Calculator {
 		else {
 			delimiter = ",|\n";
 		}
-		return delimiter;
-	}
-	private static String[] numbers(String text) {
-		String delimiter = getDelimiter(text);
-		if(text.startsWith("//"))
-			text = text.substring(text.indexOf("\n") + 1, text.length());
 		return text.split(delimiter);
 	}
 }	
