@@ -10,7 +10,7 @@ public class Calculator {
 		{
 			if(text.contains("-")) {
 				String negNumbers = getNegNumbers(text);
-				throw new RuntimeException("Negatives not allowed: " + negNumbers); 
+				throw new IllegalArgumentException("Negatives not allowed: " + negNumbers); 
 			}
 
 			

@@ -30,12 +30,22 @@ public class CalculatorTest {
 		assertEquals(20, Calculator.Add("5\n10,3\n2"));
 	}
 	@Test
-	public void testNegativeNumberException() {
+	public void testOneNegativeNumberException() {
 	    try {
 	        Calculator.Add("-1,2");
 	    } 
 	    catch (Exception e) {
 	        final String expected = "Negatives not allowed: -1";
+	        assertEquals( expected, e.getMessage());
+	    }        
+	}
+	@Test
+	public void testManyNegativeNumberException() {
+	    try {
+	        Calculator.Add("-1,2,-9\n-2,8,-11");
+	    } 
+	    catch (Exception e) {
+	        final String expected = "Negatives not allowed: -1,-9,-2,-11";
 	        assertEquals( expected, e.getMessage());
 	    }        
 	}
